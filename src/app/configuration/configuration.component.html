@@ -1,4 +1,4 @@
-<div *ngIf="visible" class="modal-wrapper">
+<div *ngIf="service.visible" class="modal-wrapper">
   <div class="modal-container">
     <div class="title">
       <div>Konfiguration</div>
@@ -12,8 +12,8 @@
     </div>
     <div class="instance-conf">
       <div>Admin-Schlüssel</div>
-      <input [(ngModel)]="apiKey" type="text">
+      <input [(ngModel)]="service.apiKey" type="text">
     </div>
-    <button (click)="saveApiKey()" type="button">Speichern & Überprüfen</button>
+    <button (click)="service.saveApiKey()" type="button">Speichern & Überprüfen</button>
   </div>
 </div>

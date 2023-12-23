@@ -19,7 +19,8 @@ export class ZoneService {
   get apiKey(): string {
     const apiUrl = localStorage.getItem('X-API-Key');
     if (apiUrl == null) {
-      throw new Error('No API key set.');
+      console.error('No API key set.');
+      return '';
     }
     return apiUrl;
   }

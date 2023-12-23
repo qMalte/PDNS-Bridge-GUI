@@ -2,8 +2,6 @@ import { ApplicationConfig } from '@angular/core';
 import { provideRouter } from '@angular/router';
 
 import { routes } from './app.routes';
-import {HttpClientModule} from "@angular/common/http";
-import {ZoneService} from "../services/zone.service";
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -12,5 +10,5 @@ export const appConfig: ApplicationConfig = {
 };
 
 export const environment = {
-  apiUrl: 'http://localhost/api/v1'
+  apiUrl: 'https://dns-prod-be.centralnode.lan/api/v1'
 }

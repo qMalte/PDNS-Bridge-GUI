@@ -3,6 +3,7 @@ import {environment} from "../app.config";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HttpClient, HttpClientModule, HttpHandler, HttpHeaders} from "@angular/common/http";
 import {NgIf} from "@angular/common";
+import {ConfigurationService} from "./configuration.service";
 
 @Component({
   selector: 'app-configuration',
@@ -16,27 +17,10 @@ import {NgIf} from "@angular/common";
   templateUrl: './configuration.component.html',
   styleUrl: './configuration.component.scss'
 })
-export class ConfigurationComponent implements OnInit {
+export class ConfigurationComponent {
 
-  visible = false;
-
-  apiKey = localStorage.getItem('X-API-Key');
-
-  constructor(private http: HttpClient) {
+  constructor(public service: ConfigurationService) {
     //
-  }
-
-  ngOnInit() {
-    if (this.apiKey == null) {
-      this.visible = true;
-    }
-  }
-
-  saveApiKey() {
-    if (this.apiKey != null) {
-      localStorage.setItem('X-API-Key', this.apiKey);
-      this.visible = false;
-    }
   }
 
 }

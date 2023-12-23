@@ -14,6 +14,7 @@ import {KeyService} from "../services/key.service";
 import {CryptoKeyService} from "./cryptoKeys/cryptoKey.service";
 import {CryptoKeyComponent} from "./cryptoKeys/cryptoKey.component";
 import {StatsService} from "../services/stats.service";
+import {ConfigurationService} from "./configuration/configuration.service";
 
 @Component({
   selector: 'app-root',
@@ -36,7 +37,8 @@ import {StatsService} from "../services/stats.service";
     SecurityQueryService,
     KeyService,
     CryptoKeyService,
-    StatsService
+    StatsService,
+    ConfigurationService
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
