@@ -1,0 +1,8 @@
+<div class="stats">
+  <div class="container">
+    <div *ngFor="let item of stats" class="stats-item">
+      <div class="title" [innerText]="item.name"></div>
+      <div class="value" [innerText]="item.value"></div>
+    </div>
+  </div>
+</div>

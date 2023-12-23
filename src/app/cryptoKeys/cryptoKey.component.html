@@ -1,0 +1,62 @@
+<div *ngIf="service.visible" class="key-wrapper">
+  <div class="key-container">
+    <div class="header">
+      <div class="title">
+        DNSSEC
+      </div>
+      <img (click)="service.close()" src="assets/cross.svg">
+    </div>
+    <div class="keys">
+      <div *ngFor="let key of service.keys" class="key">
+        <div class="value">
+          <div class="value-desc">
+            Status
+          </div>
+          <div class="value-main" [innerText]="key.active ? 'aktiviert' : 'deaktiviert'"></div>
+        </div>
+        <div class="value">
+          <div class="value-desc">
+            Algorithmus
+          </div>
+          <div class="value-main" [innerText]="key.algorithm"></div>
+        </div>
+        <div class="value">
+          <div class="value-desc">
+            Bits
+          </div>
+          <div class="value-main" [innerText]="key.bits"></div>
+        </div>
+        <div class="value">
+          <div class="value-desc">
+            Typ
+          </div>
+          <div class="value-main" style="text-transform: uppercase" [innerText]="key.keytype"></div>
+        </div>
+        <div class="value">
+          <div class="value-desc">
+            Veröffentlicht
+          </div>
+          <div class="value-main" [innerText]="key.published ? 'Ja' : 'Nein'"></div>
+        </div>
+        <div class="value">
+          <div class="value-desc">
+            DNSKEY
+          </div>
+          <div class="value-main" [innerText]="key.dnskey"></div>
+        </div>
+        <div class="value">
+          <div class="value-desc">
+            DS-Einträge
+          </div>
+          <div class="value-main">
+            <div *ngFor="let ds of key.ds" [innerText]="ds"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="actions">
+      <button *ngIf="service.keys.length <= 0" (click)="service.activate()" class="btn btn-primary">Aktivieren</button>
+      <button *ngIf="service.keys.length > 0" (click)="service.deleteKeys()" class="btn btn-primary">Deaktivieren</button>
+    </div>
+  </div>
+</div>

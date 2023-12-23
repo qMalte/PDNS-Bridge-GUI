@@ -1,0 +1,26 @@
+<div class="wrapper">
+  <div class="container">
+
+    <div class="nav">
+      <div routerLink="/" class="nav-item">
+        <img src="assets/dashboard.svg">
+        <div>Dashboard</div>
+      </div>
+      <div routerLink="/domains" class="nav-item">
+        <img src="assets/world-wide-web.svg">
+        <div>Domains</div>
+      </div>
+    </div>
+
+    <router-outlet />
+
+  </div>
+</div>
+
+<app-configuration />
+<app-editor />
+<app-cryptoKeys />
+
+<app-security-query />
+
+<app-loader />

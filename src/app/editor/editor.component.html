@@ -1,0 +1,39 @@
+<div *ngIf="service.record != null" class="editor-wrapper">
+  <div class="editor-container">
+    <div class="title">Record-Editor</div>
+    <div class="types">
+      <div *ngFor="let type of types" class="type">
+        <div class="type-inner" [ngClass]="service.record.type == type ? 'active' : service.inCreation ? 'type-inner-active' : ''"
+              (click)="setType(type)">
+          {{ type }}
+        </div>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group">
+        <input [(ngModel)]="service.record.name" (ngModelChange)="service.setDirty(); validate()"
+               [readOnly]="!service.inCreation" type="text" id="name" placeholder="Name">
+        <label for="name">Name <span [innerText]="nameValidationMessage"></span></label>
+      </div>
+      <div class="form-group" style="width: 25%">
+        <input [(ngModel)]="service.record.ttl" (ngModelChange)="service.setDirty(); validate()"
+               type="text" id="ttl" placeholder="3600">
+        <label for="name">TTL <span [innerText]="ttlValidationMessage"></span></label>
+      </div>
+    </div>
+    <div class="contents">
+      <div *ngFor="let record of service.record.records; index as i" class="form-group">
+        <textarea [(ngModel)]="record.content" [id]="'content_' + record.content"
+                  (ngModelChange)="service.setDirty(); validate()"
+                  (keydown)="contentOnKeyDown(record, $event)"></textarea>
+        <label [for]="'content_' + record.content">Content <span [innerText]="contentValidationMessage[i]"></span></label>
+      </div>
+    </div>
+    <div *ngIf="canAddContent" (click)="addContent()" class="add">
+      <img src="assets/addition.svg">
+      <div>Neuer Eintrag</div>
+    </div>
+    <button *ngIf="validateOk" (click)="service.close()" type="button">Übernehmen</button>
+    <button (click)="service.cancel()" type="button">Abbrechen</button>
+  </div>
+</div>

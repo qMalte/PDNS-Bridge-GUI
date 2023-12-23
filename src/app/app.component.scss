@@ -1,0 +1,53 @@
+.wrapper {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: auto;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: auto;
+  height: 85%;
+}
+
+router-outlet {
+  width: auto;
+  height: auto;
+}
+
+.nav {
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  padding: 2rem;
+}
+
+.nav-item {
+  transition: 0.4s;
+  width: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+
+  & > img {
+    width: 32px;
+    height: 32px;
+  }
+  & > div {
+    height: auto;
+    font-weight: bold;
+  }
+
+  &:hover {
+    cursor: pointer;
+    opacity: 0.75;
+  }
+}

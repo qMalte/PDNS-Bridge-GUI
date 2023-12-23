@@ -1,0 +1,126 @@
+// Fonts
+@import "https://fonts.werkhausen.org/Roboto/style.css";
+@import "https://fonts.werkhausen.org/SummerHearts/style.css";
+
+* {
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  background: #0f141e;
+  font-family: 'Roboto', sans-serif;
+  color: WHITE;
+  overflow: hidden;
+  padding-bottom: 2vh;
+}
+
+.SummerHearts {
+  font-family: 'Summer Hearts';
+  font-weight: normal;
+  font-style: normal;
+}
+
+input {
+  transition: 0.75s;
+  padding: 0.6rem;
+  font-size: 1.25rem;
+  border-radius: 0.5rem;
+  background: #0f141e;
+  border: 4px solid transparent;
+  caret-color: #beccea;
+  color: #beccea;
+  &::placeholder {
+    color: #beccea;
+    opacity: 0.5;
+  }
+  &:focus {
+    outline: none;
+    border-color: #beccea;
+  }
+}
+
+textarea {
+  transition: 0.6s;
+  padding: 0.75rem;
+  font-size: 1.25rem;
+  border-radius: 0.5rem;
+  background: #0f141e;
+  border: 4px solid transparent;
+  caret-color: #beccea;
+  color: #beccea;
+  &::placeholder {
+    color: #beccea;
+    opacity: 0.5;
+  }
+  &:focus {
+    outline: none;
+    border-color: #beccea;
+  }
+}
+
+select {
+  transition: 0.6s;
+  padding: 1.25rem;
+  font-size: 1.25rem;
+  border-radius: 0.5rem;
+  background: #0f141e;
+  border: 4px solid transparent;
+  caret-color: #beccea;
+  color: #beccea;
+  &::placeholder {
+    color: #beccea;
+    opacity: 0.5;
+  }
+  &:focus {
+    outline: none;
+    border-color: #beccea;
+  }
+}
+
+button {
+  transition: 0.6s;
+  background: #beccea;
+  color: #0f141e;
+  padding: 1rem;
+  border: 4px solid transparent;
+  border-radius: 0.5rem;
+  font-size: 1.25rem;
+  font-weight: bold;
+  &:hover {
+    cursor: pointer;
+    background: #0f141e;
+    color: #beccea;
+    border-color: #beccea;
+  }
+}
+
+.m-hide {
+  @media (max-width: 900px) {
+    display: none !important;
+  }
+}
+
+/* width */
+::-webkit-scrollbar {
+  transition: 0.4s;
+  height: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #18202f;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #0f141e;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #141a25;
+}

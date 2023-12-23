@@ -1,0 +1,8 @@
+{
+  "/api": {
+    "target": "https://dns-master.centralnode.lan/",
+    "secure": true,
+    "changeOrigin": true,
+    "logLevel": "debug"
+  }
+}

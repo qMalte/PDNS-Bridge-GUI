@@ -1,0 +1,64 @@
+<div *ngIf="selectedZone == null" class="domains">
+  <div *ngFor="let zone of zones" class="domain">
+    <div class="domain-text">
+      <div class="title">Domainname</div>
+      <div class="name">{{ zone.name }}</div>
+    </div>
+    <img [routerLink]="['/domain', getNameForUrl(zone)]" src="assets/pen.svg">
+  </div>
+</div>
+
+<div *ngIf="selectedZone == null && init" class="domains" style="margin-top: 1rem">
+  <div class="domain" style="gap: 0.5rem">
+    <div class="new-domain">
+      <div class="title" style="font-weight: bold">Neue Domain</div>
+      <input [(ngModel)]="newDomainName" type="text" placeholder="Name">
+    </div>
+    <img (click)="createZone()" src="assets/add.svg">
+  </div>
+</div>
+
+<div *ngIf="selectedZone != null" class="domain-name" [innerText]="getBeautifiedName(selectedZone.id)"></div>
+
+<div *ngIf="selectedZone != null" class="table">
+  <div class="table-header">
+    <div class="table-header-column m-hide" style="width: calc(100% - 14rem);">Name</div>
+    <div class="table-header-column sm m-hide">Type</div>
+    <div class="table-header-column sm m-hide">TTL</div>
+    <div class="table-header-column m-hide">Content</div>
+    <div (click)="openCryptoKeys()" class="table-header-column auto">
+      <img *ngIf="!selectedZone.dnssec" src="assets/padlock-unlock.svg">
+      <img *ngIf="selectedZone.dnssec" src="assets/secured-lock.svg">
+    </div>
+    <div (click)="deleteZone()" class="table-header-column auto">
+      <img src="assets/garbage-can.svg">
+    </div>
+    <div (click)="initCreationRRSet()" class="table-header-column auto">
+      <img src="assets/add.svg">
+    </div>
+  </div>
+  <div *ngFor="let record of getRecords()" class="table-rows" [ngClass]="record.changetype == 'DELETE' ? 'markAsDelete' : ''">
+    <div class="table-column">{{ getShortName(record) }}</div>
+    <div class="table-column sm type">{{ record.type }}</div>
+    <div class="table-column sm">{{ record.ttl }}</div>
+    <div class="table-column">
+      <div *ngFor="let content of getContentList(record)" class="content">
+        <div>{{ content }}</div>
+      </div>
+    </div>
+    <div *ngIf="record.changetype === 'DELETE'" class="table-column" style="width: auto">
+      <img (click)="unmarkRecordAsDeleted(record)" src="assets/undo.svg">
+    </div>
+    <div *ngIf="record.changetype !== 'DELETE'" class="table-column" style="width: auto">
+      <img (click)="markRecordAsDeleted(record)" src="assets/garbage-can.svg">
+    </div>
+    <div *ngIf="record.changetype !== 'DELETE'" class="table-column" style="width: auto">
+      <img (click)="editRecord(record)" src="assets/pen.svg">
+    </div>
+  </div>
+</div>
+
+<div *ngIf="editor.isDirty" (click)="save()" class="save">
+  <img src="assets/diskette.svg">
+  <div>Speichern</div>
+</div>

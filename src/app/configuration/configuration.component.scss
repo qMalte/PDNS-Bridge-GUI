@@ -1,0 +1,86 @@
+.modal-wrapper {
+  position: fixed;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-container {
+  background-color: #333b51;
+  color: #beccea;
+  border-radius: 1rem;
+  width: 40%;
+  height: auto;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  gap: 2rem;
+
+  @media (max-width: 1400px) {
+    width: 50%;
+  }
+  @media (max-width: 1000px) {
+    width: 75%;
+  }
+  @media (max-width: 600px) {
+    width: 90%;
+  }
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+}
+
+.title > img {
+  height: 64px;
+  width: 64px;
+}
+
+.title > div {
+  height: auto;
+  width: auto;
+  text-align: center;
+  font-weight: bold;
+  font-size: 2.5rem;
+}
+
+.sub-title {
+  background: #1f7fd7;
+  color: #e0e8f4;
+  border-radius: 1rem;
+  padding: 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+}
+
+.sub-title > img {
+  height: 32px;
+  width: 32px;
+}
+
+.sub-title > div {
+  height: auto;
+  font-size: 1.35rem;
+  text-align: justify;
+  line-height: 2rem;
+}
+
+.instance-conf {
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  gap: 0.5rem;
+}
+
+.instance-conf > div {
+  font-weight: bold;
+  margin-left: 0.5rem;
+  font-size: 1.25rem;
+}
